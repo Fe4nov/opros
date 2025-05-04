@@ -4,7 +4,6 @@ header img {
 }
 header{
     position: relative;
-    display: none;
 }
 h1 {
     position: absolute;
@@ -38,6 +37,7 @@ h2 {
 }
 .page1{
     position: absolute;
+    top: 0;
     width: 100%;
     height: 400px;
 }
@@ -78,4 +78,11 @@ h2 {
 .variants {
     margin-top: 25px;
     margin-left: 75px;
+}
+.ots {
+    margin-top: 125px;
+}
+
+.opros{
+    margin-top: 300px;
 }
