@@ -40,22 +40,28 @@ let cards = {
     ['Белка и Стрелка','Жучка и Тайга','Гром и Молния','Гайка и Шерхан'],
 }
 quest_cards = []
+let opros = document.querySelector('.opros')
 for (let card in cards) {
     quest_cards.push (`
     <div>
     <p class="question">${card}<p>
       <div class="variants">
-        <input type="radio" id="var1" name="drone" value="var1" checked />
+        <input type="radio" id="var1" name="${card}" value="var1" checked />
         <label for="var1">${cards[card][0]}</label>
-        <input type="radio" id="var2" name="drone" value="var2" checked />
+        <input type="radio" id="var2" name="${card}" value="var2" checked />
         <label for="var2">${cards[card][1]}</label>
       </div>
       <div class="variants">
-        <input type="radio" id="var3" name="drone" value="var3" checked />
+        <input type="radio" id="var3" name="${card}" value="var3" checked />
         <label for="var3">${cards[card][2]}</label>
-        <input type="radio" id="var4" name="drone" value="var4" checked />
+        <input type="radio" id="var4" name="${card}" value="var4" checked />
         <label for="var4">${cards[card][3]}</label>
       </div>
   </div>
     `)
+}
+console.log(quest_cards)
+for (let vopros in quest_cards) {
+  opros.innerHTML += quest_cards[vopros]
+  console.log(vopros)
 }
