@@ -7,6 +7,10 @@ class questions {
         this.w_a3 = w_a3
     }
 }
+let index = document.querySelector('.index')
+let last_page = document.querySelector('.last_page')
+index.style.display = "block";
+last_page.style.display = "none";
 let cards = {
     '1. В каком году Гагарин полетел в космос?': 
     ['1961','1960','1962','1964'],
@@ -35,6 +39,7 @@ for (let card in cards) {
     quest_cards.push (`
     <div>
     <p class="question">${card}<p>
+    <div class="prov">
       <div class="variants">
         <input type="radio" id="var1" name="${card}" value="var1"  />
         <label for="var1">${cards[card][0]}</label>
@@ -47,16 +52,48 @@ for (let card in cards) {
         <input type="radio" id="var4" name="${card}" value="var4"  />
         <label for="var4">${cards[card][3]}</label>
       </div>
+    </div
   </div>
     `)
 }
-console.log(quest_cards)
+
 for (let vopros in quest_cards) {
   opros.innerHTML += quest_cards[vopros]
-  console.log(vopros)
 }
 let btn2 = document.querySelector('.btn2')
 btn2.addEventListener('click',function() {
   let opros2 = document.querySelector('.opros')
-  console.log(opros2)
-})
+  let varg = document.querySelectorAll('.prov')
+  let proces = 0
+
+  for(let i =0; i < varg.length; i++){
+    let inputs = varg[i].querySelectorAll('input')
+    if (inputs[0].checked == true) {
+      proces = proces + 10
+      
+    }
+  }
+  if (proces <= 30) {
+    let proct = document.querySelector('.proc_bar')
+    let procent = document.querySelector('.procnt')
+    procent.innerHTML = `${proces}%`
+    proct.style.width = `${proces}%`
+    proct.style.backgroundColor = 'red'
+  }
+  if (proces > 30 && proces <= 60){
+    let proct = document.querySelector('.proc_bar')
+    let procent = document.querySelector('.procnt')
+    procent.innerHTML = `${proces}%`
+    proct.style.width = `${proces}%`
+    proct.style.backgroundColor = 'yellow'
+  }
+  if (proces > 60){
+    let proct = document.querySelector('.proc_bar')
+    let procent = document.querySelector('.procnt')
+    proct.style.width = `${proces}%`
+    procent.innerHTML = `${proces}%`
+    proct.style.backgroundColor = 'green'
+  }
+    index.style.display = "none";
+    last_page.style.display = "block";
+}) 
